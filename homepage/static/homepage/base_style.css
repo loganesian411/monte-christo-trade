@@ -1,0 +1,33 @@
+html
+{
+	z-index: 1;
+	margin-left: auto;
+	margin-right: auto;
+	width: auto;
+	min-height: auto;
+	background-color: #F6F6F6;
+}
+
+body
+{
+  position: relative;
+  margin-top: 60px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.navbar-border
+{
+	border-color: transparent;
+}
+
+.navbar-padding
+{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.featurette
+{
+	padding-bottom: 5px;
+}

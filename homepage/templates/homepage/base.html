@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html class="html" lang="en-US">
+  <head>
+	<!--TODO(loganesian): insert necessary static scripts and css-->
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+	<title>{% block title %}Monte Christo Trade Corp.{% endblock %}</title>
+
+	{% load static %}
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'homepage/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'homepage/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'homepage/base_style.css' %}"/>
+
+	{% block css %}
+	{% endblock %}
+	
+	<!-- Custom head HTML-->
+	<style>
+	  .Image_Rollover_Plus,.TeamName{
+	   transition: all 0.5s ease;
+	   -webkit-transition: all 0.5s ease;
+	  }
+
+	  .Image_Rollover_Plus:hover .TeamName{
+	   opacity:1;
+	  }
+	</style>
+
+  </head>
+
+  <body data-spy="scroll" data-target="#main-navbar">
+  	<!-- Navbar -->
+  	<div class="navbar navbar-default navbar-fixed-top" id="#main-navbar">
+	  <div class="container-fluid navbar-border">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">MC Trade Corp.</a>
+	    </div>
+		<div class="collapse navbar-collapse" style="text-align:right;">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="/#">Home</a></li>
+	        <li><a href="/#manufacturing">Manufacturing</a></li>
+	        <li><a href="#">Services</a></li>
+	        <li><a href="/#contact">Contact</a></li>
+	        <li><a href="#">Shop</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+
+	  </div><!-- /.container-fluid -->
+	</div>
+
+	{% block body %}
+	{% endblock %}
+
+	<!--Source Javascript scripts-->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-63595455-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="{% static 'homepage/scrollspy.js' %}"></script>
+	<script src="{% static 'homepage/base.js' %}"></script>
+
+	{% block js-bottom %}
+	{% endblock %}
+	</body>
+</html>
