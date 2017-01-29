@@ -7,25 +7,14 @@
 
 	{% load static %}
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="{% static 'homepage/bootstrap.min.css' %}"/>
-	<link rel="stylesheet" type="text/css" href="{% static 'homepage/font-awesome.min.css' %}"/>
-	<link rel="stylesheet" type="text/css" href="{% static 'homepage/base_style.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "homepage/bootstrap.min.css" %}"/>
+	<!-- <link rel="stylesheet" type="text/css" href="{% static "homepage/font-awesome.min.css" %}"/> -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static "homepage/base-style.css" %}"/>
 
 	{% block css %}
 	{% endblock %}
 	
-	<!-- Custom head HTML-->
-	<style>
-	  .Image_Rollover_Plus,.TeamName{
-	   transition: all 0.5s ease;
-	   -webkit-transition: all 0.5s ease;
-	  }
-
-	  .Image_Rollover_Plus:hover .TeamName{
-	   opacity:1;
-	  }
-	</style>
-
   </head>
 
   <body data-spy="scroll" data-target="#main-navbar">
@@ -48,6 +37,7 @@
 	        <li><a href="/#manufacturing">Manufacturing</a></li>
 	        <li><a href="#">Services</a></li>
 	        <li><a href="/#contact">Contact</a></li>
+	        <li><a href="/#">Catalogue</a></li>
 	        <li><a href="#">Shop</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
@@ -58,19 +48,22 @@
 	{% block body %}
 	{% endblock %}
 
-	<!--Source Javascript scripts-->
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	<!-- Footer -->
+	<footer>
+		<div class="row">
+		<i class="fa fa-facebook" aria-hidden="true"></i>
+		<i class="fa fa-twitter" aria-hidden="true"></i>
+		<i class="fa fa-google-plus" aria-hidden="true"></i>
+		<i class="fa fa-behance" aria-hidden="true"></i>
+		<i class="fa fa-dribbble" aria-hidden="true"></i>
+		<i class="fa fa-instagram" aria-hidden="true"></i>
+		</div>
+	</footer>
 
-	  ga('create', 'UA-63595455-1', 'auto');
-	  ga('send', 'pageview');
-	</script>
+	<!--Source Javascript scripts-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="{% static 'homepage/scrollspy.js' %}"></script>
-	<script src="{% static 'homepage/base.js' %}"></script>
+	<script src="{% static "homepage/scrollspy.js" %}"></script>
+	<script src="{% static "homepage/base.js" %}"></script>
 
 	{% block js-bottom %}
 	{% endblock %}

@@ -1,169 +1,278 @@
 {% extends "homepage/base.html" %}
+{% load static %}
 
-<!-- First Divider -->
+<!-- Carousel and main block -->
 {% block body %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
 
-<div class="featurette">
-	<div>
-	   <p><span>Monte Christo Trade Corp.</span></p>
-	   <p>&nbsp;</p>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="img_chania.jpg" alt="Chania">
+    </div>
+
+    <div class="item">
+      <img src="img_chania2.jpg" alt="Chania">
+    </div>
+
+    <div class="item">
+      <img src="img_flower.jpg" alt="Flower">
+    </div>
+
+    <div class="item">
+      <img src="img_flower2.jpg" alt="Flower">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<div class="container">
+   <h2 align="center">Monte Christo Trade Corp.</h2><br>
+   <p>Located in the heart of Downtown Los Angeles, Monte Christo Trade Corp. was founded in 1997. It has been operating under the same ownership since inception. Manufacturing and wholesaling jewelry and fashion accessories is our specialty.</p>
+</div>
+
+<!-- Movie Block -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<iframe src="http://player.vimeo.com/video/101231747?title=0&amp;byline=0&amp;portrait=0&amp;color=FFFFFF&amp;autoplay=0&amp;loop=0&amp;wmode=transparent" width="590" height="334" frameborder="0" class="col-md-12"></iframe>
+		</div>
+		<div class="col-md-6">
+		<h3 align="right">MADE IN THE USA</h3><br>
+		<p>We proudly embrace our culture and community.&nbsp; We are dedicated to bringing jobs and prosperity back to the United States, while utilizing high standards in our manufacturing processes and components.</p>
+		</div>
+	</div>
+</div>
+
+<!-- Manufacturing information block -->
+<div class="container">
+	<h3>MANUFACTURING</h3>
+	<p>Monte Christo Trade Corp. is equipped with the latest hi-tech induction casting and spin casting machinery, gas-fired furnaces, high speed tumbling machines, and latest 3D CAD and CNC design/printing software and equipment. We also maintain a wide variety of vintage machinery for specialty needs. We are constantly acquiring new machinery and extending our capabilities in order to keep up with our clients needs and demands. The content on this page highlights some basic capabilities and is intended for educational use.</p>
+	<div class="row">
+		<div class="col-md-4 card">
+			<img class="card-img" src="{% static "homepage/casting.jpg" %}" alt="casting_image" width="100%" height="100%">
+			<div class="card-img-overlay">
+			    <h4 class="card-title">Card title</h4>
+			    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+			    <p class="card-text">
+		    </div>
+		</div>
+		<div class="col-md-4 card">
+			<img class="card-img" src="{% static "homepage/forging-pressing.jpg" %}" alt="forging_pressing_image" width="100%" height="100%">
+			<div class="card-img-overlay">
+			    <h4 class="card-title">Card title</h4>
+			    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+			    <p class="card-text">
+		    </div>
+		</div>
+		<div class="col-md-4 card">
+			<img class="card-img" src="{% static "homepage/annealing-soldering.jpg" %}" alt="annealing_image" width="100%" height="100%">
+			<div class="card-img-overlay">
+			    <h4 class="card-title">Card title</h4>
+			    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+			    <p class="card-text">
+		    </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 card">
+			<img class="card-img" src="{% static "homepage/polishing.jpg" %}" alt="polishing_image" width="100%" height="100%">
+			<div class="card-img-overlay">
+			    <h4 class="card-title">Card title</h4>
+			    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+			    <p class="card-text">
+		    </div>
+		</div>
+		<div class="col-md-4 card">
+			<img class="card-img" src="{% static "homepage/wirerolling.jpg" %}" alt="wire_rolling_image" width="100%" height="100%">
+			<div class="card-img-overlay">
+			    <h4 class="card-title">Card title</h4>
+			    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+			    <p class="card-text">
+		    </div>
+		</div>
+		<div class="col-md-4 card">
+			<img class="card-img" src="{% static "homepage/chainmaking.jpg" %}" alt="chain_making_image" width="100%" height="100%">
+			<div class="card-img-overlay">
+			    <h4 class="card-title">Card title</h4>
+			    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+			    <p class="card-text">
+		    </div>
+		</div>
+	</div>
+</div>
+
+<!-- Quote block -->
+<div class="container">
+	<div class="row">
+		<blockquote>
+			<p>&quot;If you hear a voice within you say 'you cannot paint,' then by all means paint and that voice will be silenced.&quot;</p>
+			<small><cite title="Source Title">Vincent Van Gogh</cite></small>
+		</blockquote>
+	</div>
+</div>
+
+<!-- Every step block -->
+<div class="container">
+	<h3>Our Services</h3>
+	<span>We will be there every step of the way.</span>
+	<div class="row">
+		<div class="col-md-3">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;DESIGN
+		</div>
+		<div class="col-md-3">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;PACKAGE
+		</div>
+		<div class="col-md-3">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;MANUFACTURE
+		</div>
+		<div class="col-md-3">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;SELL
+		</div>
+	</div>
+</div>
+
+<!-- Client list -->
+<div class="container">
+	<h3>Some &nbsp;Of &nbsp;Our &nbsp;Clients</h3>
+	<div class="row">
+	  <div class="col-md-6">
+	  	<div class="row">
+	      <div class="col-md-5">
+	      	<h4>Ed Hardy</h4>
+		  </div>
+		  <div class="col-md-6">
+		  	<h4>Harley Davidson Motorcycles</h4>
+		  </div>
+		</div>
 	  </div>
-	<div>
-	   <p>Located in the heart of Downtown Los Angeles, Monte Christo Trade Corp. was founded in 1997. It has been operating under the same ownership since inception. Manufacturing and wholesaling jewelry and fashion accessories is our specialty.</p>
+	  <div class="col-md-6">
+		  <div class="row">
+			  <div class="col-md-6">
+			  	<h4>True Religion Jeans</h4>
+			  </div>
+			  <div class="col-md-6">
+			  	<h4>Bebe</h4>
+			  </div>
+		  </div>
+	  </div>
+	</div>
+	<br>
+	<div class="row">
+	  <div class="col-md-4">
+      	<center><h4>Room 101</h4></center>
+	  </div>
+	  <div class="col-md-4">
+      	<center><h4>White Trash Charms</h4></center>
+	  </div>
+	  <div class="col-md-4">
+      	<center><h4>A &nbsp;&amp; &nbsp;G Rock</h4></center>
+	  </div> 
 	</div>
 </div>
 
-<!-- Second Divider -->
-<div class="featurette">
-	<iframe src="http://player.vimeo.com/video/101231747?title=0&amp;byline=0&amp;portrait=0&amp;color=FFFFFF&amp;autoplay=0&amp;loop=0&amp;wmode=transparent" width="590" height="334" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-	<p><span id="u42886">MADE IN THE USA</span></p>
-	<p>We proudly embrace our culture and community.&nbsp; We are dedicated to bringing jobs and prosperity back to the United States, while utilizing high standards in our manufacturing processes and components.</p>
-<div>
-
-<!-- Third Divider -->
-<div>
-<p><span id="u45102">MANUFACTURING</span></p>
-<p>Monte Christo Trade Corp. is equipped with the latest hi-tech induction casting and spin casting machinery, gas-fired furnaces, high speed tumbling machines, and latest 3D CAD and CNC design/printing software and equipment. We also maintain a wide variety of vintage machinery for specialty needs. We are constantly acquiring new machinery and extending our capabilities in order to keep up with our clients needs and demands. The content on this page highlights some basic capabilities and is intended for educational use.</p>
-
- <a class="nonblock nontext rgba-background Image_Rollover_Plus museBGSize clearfix grpelem" id="u44001" href="image_1.html" data-href="page:U16621" data-muse-uid="U44001"><!-- group --><!-- m_editable region-id="editable-static-tag-U43992" template="index.html" data-type="html" data-ice-options="disableImageResize,link" --><div class="TeamName clearfix grpelem" id="u43992-6" data-muse-uid="U43992" data-muse-type="txt_frame"><!-- content --><p id="u43992-2">Casting</p><p id="u43992-4">–</p></div><!-- /m_editable --></a>
-
- <a class="nonblock nontext Image_Rollover_Plus museBGSize rgba-background clearfix grpelem" id="u44004" href="image_2.html" data-href="page:U48466" data-muse-uid="U44004"><!-- group --><!-- m_editable region-id="editable-static-tag-U43995" template="index.html" data-type="html" data-ice-options="disableImageResize,link" --><div class="TeamName clearfix grpelem" id="u43995-6" data-muse-uid="U43995" data-muse-type="txt_frame"><!-- content --><p id="u43995-2">Forging &amp; Pressing</p><p id="u43995-4">–</p></div><!-- /m_editable --></a>
-
- <a class="nonblock nontext Image_Rollover_Plus museBGSize rgba-background clearfix grpelem" id="u44007" href="image_3.html" data-href="page:U29582" data-muse-uid="U44007"><!-- group --><!-- m_editable region-id="editable-static-tag-U43998" template="index.html" data-type="html" data-ice-options="disableImageResize,link" --><div class="TeamName clearfix grpelem" id="u43998-6" data-muse-uid="U43998" data-muse-type="txt_frame"><!-- content --><p id="u43998-2">Annealing &amp; Soldering</p><p id="u43998-4">–</p></div><!-- /m_editable --></a>
-
- <a class="nonblock nontext Image_Rollover_Plus museBGSize rgba-background clearfix grpelem" id="u44002" href="image_4.html" data-href="page:U29620" data-muse-uid="U44002"><!-- group --><!-- m_editable region-id="editable-static-tag-U43993" template="index.html" data-type="html" data-ice-options="disableImageResize,link" --><div class="TeamName clearfix grpelem" id="u43993-6" data-muse-uid="U43993" data-muse-type="txt_frame"><!-- content --><p id="u43993-2">Polishing</p><p id="u43993-4">–</p></div><!-- /m_editable --></a>
-
- <a class="nonblock nontext Image_Rollover_Plus museBGSize rgba-background clearfix grpelem" id="u44005" href="image_5.html" data-href="page:U29658" data-muse-uid="U44005"><!-- group --><!-- m_editable region-id="editable-static-tag-U43996" template="index.html" data-type="html" data-ice-options="disableImageResize,link" --><div class="TeamName clearfix grpelem" id="u43996-6" data-muse-uid="U43996" data-muse-type="txt_frame"><!-- content --><p id="u43996-2">Wire Rolling</p><p id="u43996-4">–</p></div><!-- /m_editable --></a>
-
- <a class="nonblock nontext Image_Rollover_Plus museBGSize rgba-background clearfix grpelem" id="u44008" href="image_6.html" data-href="page:U29696" data-muse-uid="U44008"><!-- group --><!-- m_editable region-id="editable-static-tag-U43999" template="index.html" data-type="html" data-ice-options="disableImageResize,link" --><div class="TeamName clearfix grpelem" id="u43999-6" data-muse-uid="U43999" data-muse-type="txt_frame"><!-- content --><p id="u43999-2">Chain Making</p><p id="u43999-4">–</p></div><!-- /m_editable --></a>
-
-</div>
-
-<!-- Fourth Divider -->
-<div class="clearfix grpelem" id="u45114-6" data-muse-uid="U45114" data-muse-type="txt_frame">
-	<blockquote>
-		<p>&quot;If you hear a voice within you say 'you cannot paint,' then by all means paint and that voice will be silenced.&quot;</p>
-		<small><cite title="Source Title">Vincent Van Gogh</cite></small>
-	</blockquote><!-- content -->
-</div>
-
-<!-- Fifth Divider -->
-<div>
-	<div class="clearfix colelem" id="u44798-4" data-muse-uid="U44798" data-muse-type="txt_frame"><!-- content -->
-		<p><span id="u44798">OUR SERVICES</span></p>
-	</div>
-	<div class="clearfix colelem" id="u44797-4" data-muse-uid="U44797" data-muse-type="txt_frame"><!-- content -->
-		<p>We will be there every step of the way.</p>
-	</div>
-	<div>
-		<div class="clearfix grpelem" id="u47788"><!-- group -->
-		 <!-- m_editable region-id="editable-static-tag-U47789" template="index.html" data-type="html" data-ice-options="disableImageResize,link" -->
-		 <div class="clearfix grpelem" id="u47789-4" data-muse-uid="U47789" data-muse-type="txt_frame"><!-- content -->
-		  <p>DESIGN</p>
-		 </div>
-		 <!-- /m_editable -->
-		</div>
-		<div class="clearfix grpelem" id="u47892"><!-- group -->
-		 <!-- m_editable region-id="editable-static-tag-U47894" template="index.html" data-type="html" data-ice-options="disableImageResize,link" -->
-		 <div class="clearfix grpelem" id="u47894-4" data-muse-uid="U47894" data-muse-type="txt_frame"><!-- content -->
-		  <p>PACKAGE</p>
-		 </div>
-		 <!-- /m_editable -->
-		</div>
-		<div class="clearfix grpelem" id="u47880"><!-- group -->
-		 <!-- m_editable region-id="editable-static-tag-U47882" template="index.html" data-type="html" data-ice-options="disableImageResize,link" -->
-		 <div class="clearfix grpelem" id="u47882-4" data-muse-uid="U47882" data-muse-type="txt_frame"><!-- content -->
-		  <p>MANUFACTURE</p>
-		 </div>
-		 <!-- /m_editable -->
-		</div>
-
-		<div class="clearfix grpelem" id="u47888"><!-- group -->
-		<!-- m_editable region-id="editable-static-tag-U47889" template="index.html" data-type="html" data-ice-options="disableImageResize,link" -->
-		<div class="clearfix grpelem" id="u47889-4" data-muse-uid="U47889" data-muse-type="txt_frame"><!-- content -->
-		 <p>SELL</p>
-		</div>
-		<!-- /m_editable -->
-		</div>
+<!-- Quote block -->
+<div class="container">
+	<div class="row">
+		<blockquote class="blockquote-reverse">
+			<p>&quot;I put my heart and my soul into my work, and have lost my mind in the process.&quot;</p>
+			<small><cite title="Source Title">Vincent Van Gogh</cite></small>
+		</blockquote>
 	</div>
 </div>
 
-<!-- Sixth Divider -->
-<div>
-	<blockquote class="blockquote-reverse">
-		<p>&quot;I put my heart and my soul into my work, and have lost my mind in the process.&quot;</p>
-		<small><cite title="Source Title">Vincent Van Gogh</cite></small>
-	</blockquote>
-</div>
-
-<!-- Seventh Divider (address) -->
-
-<!-- Eighth Divider (contact form) -->
+<!-- Address and contact -->
 <div class="container" id="contact">
 	<h3>Get &nbsp;In &nbsp;Touch</h3>
 	<div class="row">
-		<div class="col-md-4">
-			<address>
-				<strong>Address</strong><br>
-				1355 Market Street, Suite 900<br>
-				San Francisco, CA 94103<br>
-				<abbr title="Phone">P:</abbr> (123) 456-7890
-			</address>
-
-			<address>
-				<strong>Full Name</strong><br>
-				<a href="mailto:#">first.last@example.com</a>
-			</address>
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md-6">
+					<address>
+						<h4>Address</h4>
+						707 S. Broadway Suite 101<br>
+						Los Angeles, CA 90014<br>
+					</address>
+                </div>
+                <div class="col-md-6">
+					<address>
+						<h4>Business Hours</h4>
+						M-F 9 am to 6 pm (PST)<br>
+					</address>
+                </div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<address>
+						<h4>Phone</h4>
+						<abbr title="Phone"></abbr> (213) 629-2958
+					</address>
+                </div>
+                <div class="col-md-6">
+					<address>
+						<h4>Email</h4>
+						<strong>General:</strong> info@mctradecorp.net</a><br>
+						<strong>Sales:</strong> sales@mctradecorp.net</a>
+					</address>
+                </div>
+			</div>
+			<div class="row">
+				<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:300px;width:500px;'><div id='gmap_canvas' style='height:300px;width:500px;'></div><div><small><a href="http://embedgooglemaps.com">embed google maps</a></small></div><div><small><a href="http://biludlejning.world">website</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(34.0452091,-118.2537155),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(34.0452091,-118.2537155)});infowindow = new google.maps.InfoWindow({content:'<strong>Monte Christo Trade Corp.</strong><br>707 S. Broadway Suite 101 Los Angeles, CA 90014<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+			</div>
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-6">
 			<div class="row">
 				<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-				  <strong>Name:</strong>
+				  <div class="form-group">
+				  	<label class="control-label" for="focusedInput">Name:</label>
+					<input class="form-control" id="formdata-name" type="text" placeholder="Your name">
+				  </div>
 				</div>
 				<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-				  <strong>Email:</strong>
+				  <div class="form-group">
+				    <label class="control-label" for="focusedInput">Email:</label>
+				  <input class="form-control" type="formdata-email"  type="email" placeholder="Your email">
+				  </div>
 				</div>
 				<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-				  <strong>Subject:</strong>
+				  <div class="form-group">
+				    <label class="control-label" for="focusedInput">Subject:</label>
+				  <input class="form-control" type="formdata-subject" type="subject" placeholder="Subject">
+				  </div>
+				</div>
+			</div>
+			<div class="row">
+			  <div class="col-md-12">
+				<div class="form-group">
+				  <label class="control-label" for="inputError">Your Message:</label>
+				  <textarea class="form-control" rows="15" id="formdata-message" type="text" placeholder="Add a brief message..."></textarea>
+				</div>
+			  </div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+				<button type="submit" class="btn btn-default outline">Submit</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-<form>
-	
-<div class="form-group row">
-	<label for="example-text-input" class="col-2 col-form-label">Text</label>
-	<!-- <div class="col-10"> -->
-	<input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-	<!-- </div> -->
-	<label class="control-label" for="focusedInput">Name:</label>
-	<input class="form-control" id="formdata-name" type="text" placeholder="Name.">
-</div>
-
-<div class="form-group">
-  <label class="control-label" for="focusedInput">Name:</label>
-  <input class="form-control" id="formdata-name" type="text" placeholder="Name.">
-</div>
-
-<div class="form-group">
-    <label class="control-label" for="focusedInput">Email:</label>
-  <input class="form-control" type="formdata-email" placeholder="Email." type="email">
-</div>
-
-<div class="form-group">
-  <label class="control-label" for="focusedInput">Subject:</label>
-  <input class="form-group" id="formdata-subject" type="text" placeholder="Subject.">
-</div>
-
-<div class="form-group">
-  <label class="control-label" for="inputError">Your Message:</label>
-  <input class="form-control" id="formdata-message" type="text" placeholder="Add a brief message...">
-</div>
-
-<button type="submit" class="btn btn-primary">Submit</button>
-</form>
 
 {% endblock %}
 
