@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html class="html" lang="en-US">
   <head>
-	<!--TODO(loganesian): insert necessary static scripts and css-->
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
 	<title>{% block title %}Monte Christo Trade Corp.{% endblock %}</title>
 
@@ -23,7 +22,7 @@
 	  <div class="container-fluid navbar-border">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
 	        <span class="sr-only">Toggle navigation</span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
@@ -33,12 +32,11 @@
 	    </div>
 		<div class="collapse navbar-collapse" style="text-align:right;">
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="/#">Home</a></li>
 	        <li><a href="/#manufacturing">Manufacturing</a></li>
-	        <li><a href="#">Services</a></li>
+	        <li><a href="/#services">Services</a></li>
 	        <li><a href="/#contact">Contact</a></li>
-	        <li><a href="/#">Catalogue</a></li>
-	        <li><a href="#">Shop</a></li>
+	        <li><a href="/#catalogue">Catalogue</a></li>
+	        <li><a href="/#shop">Shop</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 
@@ -61,7 +59,19 @@
 	</footer>
 
 	<!--Source Javascript scripts-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- Load jQuery and Bootstrap js -->
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="{% static "homepage/bootstrap.min.js" %}"></script>
+	
+	<!-- Carousel -->
+	<script language="JavaScript" type="text/javascript">
+	  $(document).ready(function(){
+	    $('.carousel').carousel({
+	      interval: 3000
+	    })
+	  });    
+	</script> 
+
 	<script src="{% static "homepage/scrollspy.js" %}"></script>
 	<script src="{% static "homepage/base.js" %}"></script>
 
