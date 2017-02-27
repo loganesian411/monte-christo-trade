@@ -24,11 +24,10 @@ class Customer(models.Model):
       (EMAIL, 'Email'),
       (PHONE, 'Phone')
   )
-  customer_name = models.CharField('Name', max_length=100)
+  name = models.CharField('Name', max_length=100)
   email = models.EmailField()
-  phone_number = models.CharField('Phone', max_length=20)
-  address = models.ForeignKey(Address, on_delete=models.SET_NULL, blank=True,
-                              null=True)
+  phone = models.CharField('Phone', max_length=20)
+  addresses = models.ManyToManyField(Address)
   method_of_contact = models.CharField(max_length=10, choices=CONTACT_METHODS, default=EMAIL)
   notifications_opt_in = models.BooleanField('Notifications opt-in', default=False)
 
@@ -36,25 +35,25 @@ class Customer(models.Model):
     return self.customer_name
 
 @python_2_unicode_compatible
-class CustomerCompany(models.Model):
-  company_name = models.CharField('Name', max_length=100)
-  company_phone = models.CharField('Phone', max_length=20, blank=True)
-  # TODO(loganesian): Should the company be deleted if its address is deleted?
-  # Else we just end up with a blank address field.
-  address = models.ForeignKey(Address, on_delete=models.SET_NULL, blank=True,
-                              null=True)
+class Company(models.Model):
+  name = models.CharField('Name', max_length=100)
+  phone = models.CharField('Phone', max_length=20, blank=True)
+  email = models.EmailField()
+  addresses = models.ManyToManyField(Address)
   resale_number = models.CharField(max_length=50)
-  # TODO(loganesian): Not entirely sure if this should default to being null or
-  # just the company phone number.
-  point_of_contact = models.ForeignKey(Customer, on_delete=models.SET_DEFAULT,
-                                       default=self.company_phone)
+  point_of_contact = models.ManyToManyField(Customer,
+                                            through='PointsOfContact',
+                                            through_fields=('company',
+                                                            'customer'))
 
   def __str__(self):
     return self.company_name
 
-# TODO(loganesian): Implement or delete.
+@python_2_unicode_compatible
 class PointsOfContact(models.Model):
-  pass
+  customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+  company = models.ForeignKey(Company, on_delete=models.CASCADE)
+  primary_poc = models.BooleanField('Primary point-of-contact', default=False)
 
 @python_2_unicode_compatible
 class Orders(models.Model):
@@ -75,21 +74,27 @@ class Orders(models.Model):
 
   # Fields.
   customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-  customer_product = models.ForeignKey(CustomerProduct, on_delete=models.CASCADE)
-  # TODO(loganesian): Read the difference b/w FileField and ImageField and
-  # determine which approach is better.
-  # 
-  photograph = models.FileField()
+  company = models.ForeignKey(Company, models.SET_NULL, blank=True, null=True)
+  product = models.ForeignKey(CustomerProduct, on_delete=models.CASCADE)
+  order_file = models.FileField()
   customer_product_description = models.TextField()
   total_price = models.DecimalField()
   notification_opt_in = models.BooleanField('Notifications opt-in', default=False)
   status = models.CharField(max_length=2, choices=ORDER_STATUS)
+  # TODO(loganesian): Figure out a way to link this to OrderComment.
   manufacturer_product_notes = models.TextField()
   order_placement_date = models.DateTimeField(auto_now_add=True)
   est_order_completion_date = models.DateTimeField()
   # TODO(loganesian): Invoice or payment date.
   invoice_date = models.DateTimeField()
   product_pickup_shipment_data = models.DateTimeField()
+
+# TODO(loganesian): User is company employee or a customer?
+class OrderComment(models.Model):
+  order = models.ForeignKey(Order, on_delete=models.CASCADE)
+  user
+  content = models.TextField()
+  timestamp = models.DateTimeField(auto_now_add=True)
 
 class MetalTypes(models.Model):
   pass
@@ -127,8 +132,8 @@ class JewelrySizeSpecifications(models.Model):
 
 @python_2_unicode_compatible
 class Products(models.Model):
+  style_number = models.AutoField(primary_key=True)
   jewelry_type = 
-  style_number = 
   metal_types = 
   finish_types = 
   available_sizes = 
@@ -138,9 +143,9 @@ class Products(models.Model):
 @python_2_unicode_compatible
 class CustomerProduct(models.Model):
   order = models.ForeignKey(Orders, on_delete=models.CASCADE)
-  base_product = models.ForeignKey(Products, on_delete=
+  base_product = models.ForeignKey(Products, on_delete=models.CASCADE)
   unit_number = models.IntegerField()
   size = 
   length = 
-  finish_type
-  metal_type
+  finish_type = 
+  metal_type = 
