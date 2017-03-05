@@ -1,9 +1,20 @@
 from __future__ import unicode_literals
 
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 
 # Each model will have an automatic id field.
+# TODO(loganesian): Determine if this is the best way to store this information.
+# Users here refers to the company-side users.
+@python_2_unicode_compatible
+class User(models.Model):
+  name = models.CharField('Name', max_length=100)
+  email = models.EmailField()
+
+  def __str__(self):
+    self.name
+
 @python_2_unicode_compatible
 class Address(models.Model):
   street_one = models.CharField(max_length=150)
@@ -32,7 +43,7 @@ class Customer(models.Model):
   notifications_opt_in = models.BooleanField('Notifications opt-in', default=False)
 
   def __str__(self):
-    return self.customer_name
+    return self.name
 
 @python_2_unicode_compatible
 class Company(models.Model):
@@ -47,61 +58,30 @@ class Company(models.Model):
                                                             'customer'))
 
   def __str__(self):
-    return self.company_name
+    return self.name
 
-@python_2_unicode_compatible
+
 class PointsOfContact(models.Model):
   customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
   company = models.ForeignKey(Company, on_delete=models.CASCADE)
   primary_poc = models.BooleanField('Primary point-of-contact', default=False)
 
+
 @python_2_unicode_compatible
-class Orders(models.Model):
-  # Status choices.
-  RECEIVED_REVIEWING = 'RR'
-  PROCESSING = 'PR'
-  QUALITY_CHECK = 'QA'
-  READY_FOR_PICKUP = 'RP'
-  # TODO(loganesian): Add status for shipment?
-  ORDER_COMPLETE = 'CP'
-  ORDER_STATUS = (
-      (RECEIVED_REVIEWING, 'Under review pending confirmation'),
-      (PROCESSING, 'Processing'),
-      (QUALITY_CHECK, 'Quality check'),
-      (READY_FOR_PICKUP, 'Ready for pickup'),
-      (COMPLETE, 'Order complete and picked up'),
-  )
+class MetalType(models.Model):
+  metal_type = models.CharField(max_length=20)
 
-  # Fields.
-  customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-  company = models.ForeignKey(Company, models.SET_NULL, blank=True, null=True)
-  product = models.ForeignKey(CustomerProduct, on_delete=models.CASCADE)
-  order_file = models.FileField()
-  customer_product_description = models.TextField()
-  total_price = models.DecimalField()
-  notification_opt_in = models.BooleanField('Notifications opt-in', default=False)
-  status = models.CharField(max_length=2, choices=ORDER_STATUS)
-  # TODO(loganesian): Figure out a way to link this to OrderComment.
-  manufacturer_product_notes = models.TextField()
-  order_placement_date = models.DateTimeField(auto_now_add=True)
-  est_order_completion_date = models.DateTimeField()
-  # TODO(loganesian): Invoice or payment date.
-  invoice_date = models.DateTimeField()
-  product_pickup_shipment_data = models.DateTimeField()
+  def __str__(self):
+    print self.metal_type
 
-# TODO(loganesian): User is company employee or a customer?
-class OrderComment(models.Model):
-  order = models.ForeignKey(Order, on_delete=models.CASCADE)
-  user
-  content = models.TextField()
-  timestamp = models.DateTimeField(auto_now_add=True)
+@python_2_unicode_compatible
+class FinishType(models.Model):
+  finish_type = models.CharField(max_length=20)
 
-class MetalTypes(models.Model):
-  pass
+  def __str__(self):
+    print self.finish_type
 
-class FinishTypes(models.Model):
-  pass
-
+@python_2_unicode_compatible
 class JewelryType(models.Model):
   RING = 'R'
   EARRING = 'E'
@@ -125,27 +105,78 @@ class JewelryType(models.Model):
       (BUCKLE, 'Buckle'),
   )
   jewelry_type = models.CharField(choices=TYPE_CHOICES, max_length=2)
+
+  def __str__(self):
+    print self.jewelry_type
   
 
 class JewelrySizeSpecifications(models.Model):
-  pass
+  sizes = ArrayField(models.DecimalField(max_digits=5, decimal_places=2))
+
 
 @python_2_unicode_compatible
 class Products(models.Model):
   style_number = models.AutoField(primary_key=True)
-  jewelry_type = 
-  metal_types = 
-  finish_types = 
-  available_sizes = 
-  available_lengths = 
-  unit_price = models.DecimalField()
+  jewelry_type = models.ForeignKey(JewelryType)
+  metal_types = models.ManyToManyField(MetalType)
+  finish_types = models.ManyToManyField(FinishType)
+  # TODO(loganesian): Verify if this is the right way to on_delete.
+  available_sizes = models.ForeignKey(JewelrySizeSpecifications, on_delete=models.SET_NULL, blank=True, null=True)
+  unit_price = models.DecimalField(max_digits=10, decimal_places=2)
 
-@python_2_unicode_compatible
+  def __str__(self):
+    print self.style_number
+
+# TODO(loganesian): Should this inherit from Products or have it as a ForeignKey.
 class CustomerProduct(models.Model):
-  order = models.ForeignKey(Orders, on_delete=models.CASCADE)
   base_product = models.ForeignKey(Products, on_delete=models.CASCADE)
   unit_number = models.IntegerField()
-  size = 
-  length = 
-  finish_type = 
-  metal_type = 
+  # TODO(loganesian): Find a way to limit these choices based on the metal_types of base product.
+  finish_type = models.ForeignKey(FinishType, on_delete=models.SET_NULL, blank=True, null=True) 
+  metal_type = models.ForeignKey(MetalType, on_delete=models.SET_NULL, blank=True, null=True)
+  size = models.ForeignKey(JewelrySizeSpecifications, on_delete=models.SET_NULL, blank=True, null=True)
+
+
+class Order(models.Model):
+	# Status choices.
+	RECEIVED_REVIEWING = 'RR'
+	PROCESSING = 'PR'
+	QUALITY_CHECK = 'QA'
+	READY_FOR_PICKUP = 'RP'
+	# TODO(loganesian): Add status for shipment?
+	ORDER_COMPLETE = 'CP'
+	ORDER_STATUS = (
+			(RECEIVED_REVIEWING, 'Under review pending confirmation'),
+			(PROCESSING, 'Processing'),
+			(QUALITY_CHECK, 'Quality check'),
+			(READY_FOR_PICKUP, 'Ready for pickup'),
+			(ORDER_COMPLETE, 'Order complete and picked up'),
+	)
+
+	# Fields.
+	customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+	company = models.ForeignKey(Company, models.SET_NULL, blank=True, null=True)
+	product = models.ForeignKey(CustomerProduct, on_delete=models.CASCADE)
+	# TODO(loganesian): Should it be size restricted?
+	order_attachments = ArrayField(models.FileField(), size=8, blank=True, null=True)
+	customer_product_description = models.TextField()
+	total_price = models.DecimalField(max_digits=10, decimal_places=2)
+	notification_opt_in = models.BooleanField('Notifications opt-in', default=False)
+	status = models.CharField(max_length=2, choices=ORDER_STATUS)
+	# TODO(loganesian): Figure out a way to link this to OrderComment.
+	manufacturer_product_notes = models.TextField()
+	order_placement_date = models.DateTimeField(auto_now_add=True)
+	est_order_completion_date = models.DateTimeField()
+	# TODO(loganesian): Invoice or payment date.
+	invoice_date = models.DateTimeField()
+	# TODO(loganesian): Should this be included?
+	product_pickup_shipment_data = models.DateTimeField()
+
+# TODO(loganesian): User is company employee or a customer?
+class OrderComment(models.Model):
+	order = models.ForeignKey(Order, on_delete=models.CASCADE)
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	content = models.TextField()
+	timestamp = models.DateTimeField(auto_now_add=True)
+
+
