@@ -35,7 +35,8 @@ Vagrant.configure("2") do |config|
     source virtualenv/bin/activate
     pip install -r requirements.txt
     
-    sudo -i -u postgres -c 'createuser vagrant && createdb vagrant'
+    sudo -i -u postgres createuser vagrant
+    sudo -i -u postgres createdb vagrant
 
   SHELL
 end
