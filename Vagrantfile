@@ -38,5 +38,7 @@ Vagrant.configure("2") do |config|
     sudo -i -u postgres createuser vagrant
     sudo -i -u postgres createdb vagrant
 
+    sudo -i -u postgres psql -c "alter role vagrant with encrypted password 'secret'"
+
   SHELL
 end
