@@ -1,2 +1,10 @@
 Django==1.10.5
 psycopg2==2.6.2
+chardet==2.3.0
+chrome-gnome-shell==0.0.0
+pygobject==3.22.0
+PySocks==1.5.6
+requests==2.10.0
+six==1.10.0
+urllib3==1.15.1
+vboxapi==1.0

@@ -26,7 +26,8 @@ SECRET_KEY = pass
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Add any other host ip's here. The included is for the provided vagrant virtual machine.
+ALLOWED_HOSTS = ['192.168.33.10']
 
 
 # Application definition
@@ -45,6 +46,8 @@ PROJECT_APPS = [
     'homepage',
     'webstore',
     'dashboard',
+    # This allows SASS processing
+    'sass_processor'
 ]
 
 INSTALLED_APPS = PREREQ_APPS + PROJECT_APPS
@@ -82,10 +85,17 @@ WSGI_APPLICATION = 'monte_christo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
-# TODO: Add a database.
+# Note that the database config is already set to use Postgres 
+# as the project uses some Postgres-specific field types.
 DATABASES = {
-    'default': {}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql', 
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
 
 
@@ -133,3 +143,16 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
+
+# SASS config
+SASS_PROCESSOR_INCLUDE_DIRS = [
+    os.path.join(BASE_DIR, 'node_modules/')
+]
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+]
+
+SASS_PRECISION = 8
