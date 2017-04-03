@@ -1,0 +1,13 @@
+gitignore
+*.pyc
+db.sqlite3
+filelayout.txt
+.DS_Store
+*.jpg
+static_cdn/
+monte_christo/settings.py
+*/migrations/*
+.vscode/
+.vagrant/
+node_modules/
+virtualenv/
