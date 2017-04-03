@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
-    apt-get install -y python-pip postgresql postgresql-contrib python-dev libpq-dev
+    apt-get install -y python-pip postgresql postgresql-contrib python-dev libpq-dev npm
 
     pip install virtualenv
     cd /home/vagrant/project

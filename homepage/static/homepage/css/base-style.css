@@ -1,0 +1,53 @@
+/*https://miketricking.github.io/dist/*/
+
+.btn.outline
+{
+	background: none;
+	padding: 7px 7px;
+}
+
+.btn-default.outline
+{
+	border: 2px solid #a6abad;
+	color: #888989;
+}
+
+.btn-default.outline:hover, .btn-default.outline:focus, .btn-default.outline:active, .btn-default.outline.active
+{
+	color: #33a6cc;
+	border-color: #33a6cc;
+	background-color: #d5dde0;
+}
+
+.btn-default.outline:active, .btn-default.outline.active
+{
+	border-color: #007299;
+	color: #007299;
+	box-shadow: none;
+}
+
+.carousel-fade .carousel-inner .item {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .item,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  opacity: 0;
+}
+.carousel-fade .carousel-inner .active,
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .next,
+.carousel-fade .carousel-inner .prev,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
