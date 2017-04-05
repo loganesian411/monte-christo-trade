@@ -139,8 +139,10 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-#    '/var/www/static',
+    ("node_modules", os.path.join(BASE_DIR, "node_modules/"))
 ]
+
+NODE_MODULES_URL = STATIC_URL + "node_modules/"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
 
