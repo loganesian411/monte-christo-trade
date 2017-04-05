@@ -46,14 +46,14 @@ $icon-font-path: unquote(get-setting(NODE_MODULES_URL) + "/bootstrap-sass/assets
 // GENERAL
 // Pad the top of the document to allow for the header.
 body
-  padding-top: 40px
+  padding-top: 55px
 
 // Change all containers to have a white background,
 // except for the one in navigation.
 .container
   background-clip: padding-box
   background-color: #FFFFFF
-.navbar-nav,
+.navbar,
 footer,
 header,
 head,
@@ -81,7 +81,6 @@ h3
     h5
       text-align: center;
 
-
 // CAROUSEL
 .carousel,
 .carousel-inner
@@ -89,3 +88,6 @@ h3
 
 footer
   padding: 10px 0px
+
+#carousel
+  padding-top: $navbar-padding-horizontal;
