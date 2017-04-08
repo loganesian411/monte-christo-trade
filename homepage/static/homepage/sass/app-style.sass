@@ -47,6 +47,10 @@ $icon-font-path: unquote(get-setting(NODE_MODULES_URL) + "/bootstrap-sass/assets
 // Pad the top of the document to allow for the header.
 body
   padding-top: 55px
+  // Hyperlinks should not appear blue.
+  a
+    color: $black-color
+    text-decoration: None
 
 // Change all containers to have a white background,
 // except for the one in navigation.
