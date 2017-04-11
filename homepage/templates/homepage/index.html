@@ -67,17 +67,88 @@
 		</div>
 	</div>
 
-
 	<hr>
-<div id="manufacturing">
-		<div class="row">
-			<div class="col-md-12">
-				<h3><a href="{% url 'homepage:machine-detail' 'forging_pressing' %}">MANUFACTURING</a></h3>
-			</div>
-		</div>
-</div>
 
 	<!-- Manufacturing information block -->
+	<div id="manufacturing">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Manufacturing</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p>Monte Christo Trade Corp. is equipped with the latest hi-tech induction casting and spin casting machinery, gas-fired
+					furnaces, high speed tumbling machines, and latest 3D CAD and CNC design/printing software and equipment. We also maintain
+					a wide variety of vintage machinery for specialty needs. We are constantly acquiring new machinery and extending our
+					capabilities in order to keep up with our clients needs and demands. The content on this page highlights some basic
+					capabilities and is intended for educational use.</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<div class="thumbnail">
+				<img src="{% static 'homepage/images/casting.jpg' %}" alt="casting_image">
+				<div class="overlay">
+					<a class="info" href="{% url 'homepage:machine-detail' 'casting' %}">
+						<h2>Casting</h2>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<div class="thumbnail">
+				<img src="{% static 'homepage/images/forging-pressing.jpg' %}" alt="forging_pressing_image">
+				<div class="overlay">
+					<a class="info" href="{% url 'homepage:machine-detail' 'forging_pressing' %}">
+						<h2>Forging and Pressing</h2>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<div class="thumbnail">
+				<div class="overlay">
+					<a class="info" href="#">
+						<h2>Annealing and Soldering</h2>
+					</a>
+				</div>
+				<img src="{% static 'homepage/images/annealing-soldering.jpg' %}" alt="annealing_image">
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<div class="thumbnail">
+				<img class="img-responsive" src="{% static 'homepage/images/polishing.jpg' %}" alt="polishing_image">
+				<div class="overlay">
+					<a class="info" href="#">
+						<h2>Polishing</h2>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<div class="thumbnail">
+				<img class="img-responsive" src="{% static 'homepage/images/wirerolling.jpg' %}" alt="wire_rolling_image">
+				<div class="overlay">
+					<a class="info" href="#">
+						<h2>Wire Rolling</h2>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<div class="thumbnail">
+				<img class="img-responsive" src="{% static 'homepage/images/chainmaking.jpg' %}" alt="chain_making_image">
+				<div class="overlay">
+					<a class="info" href="#">
+						<h2>Chain Making</h2>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<!--<div id="manufacturing">
 		<div class="row">
 			<div class="col-md-12">
