@@ -20,8 +20,8 @@ def index(request):
 	  contact_form = forms.ContactForm()
   return render(request, 'homepage/index.html', {'form': contact_form})
 
-def message_success(request):
-  return HttpResponse(('Thank you for contacting us! We will get back to you as soon as possible'))
+def confirmation(request):
+  return render(request, 'homepage/confirmation.html')
 
 def machine_detail(request, machine_name):
   template = 'homepage/{0}.html'.format(machine_name)
