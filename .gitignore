@@ -11,3 +11,4 @@ monte_christo/settings.py
 .vagrant/
 node_modules/
 virtualenv/
+**/sass/**/*.css

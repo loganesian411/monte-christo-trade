@@ -1,291 +1,340 @@
-{% extends "homepage/base.html" %}
-{% load static %}
+{% extends "homepage/base.html" %} {% load static %}
 
 <!-- Carousel and main block -->
 {% block body %}
 <div class="container">
-	<div id="carousel" class="carousel slide carousel-w-padding" data-ride="carousel">
-	  <!-- Indicators -->
-	  <ol class="carousel-indicators">
-	    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-	    <li data-target="#carousel" data-slide-to="1"></li>
-	    <li data-target="#carousel" data-slide-to="2"></li>
-	    <li data-target="#carousel" data-slide-to="3"></li>
-	    <li data-target="#carousel" data-slide-to="4"></li>
-	  </ol>
+	<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<img class="d-block img-fluid" src="{% static 'homepage/images/one.jpg' %}" alt="carousel_one">
+			</div>
 
-	  <!-- Wrapper for slides -->
-	  <div class="carousel-inner" role="listbox">
-	    <div class="item active">
-	      <img class="d-block img-fluid" src="{% static "homepage/one.jpg" %}" alt="carousel_one">
-	    </div>
+			<div class="item">
+				<img class="d-block img-fluid" src="{% static 'homepage/images/two.jpg' %}" alt="carousel_two">
+			</div>
 
-	    <div class="item">
-	      <img class="d-block img-fluid" src="{% static "homepage/two.jpg" %}" alt="carousel_two">
-	    </div>
+			<div class="item">
+				<img class="d-block img-fluid" src="{% static 'homepage/images/three.jpg' %}" alt="carousel_three">
+			</div>
 
-	    <div class="item">
-	      <img class="d-block img-fluid" src="{% static "homepage/three.jpg" %}" alt="carousel_three">
-	    </div>
+			<div class="item">
+				<img class="d-block img-fluid" src="{% static 'homepage/images/four.jpg' %}" alt="carousel_four">
+			</div>
 
-	    <div class="item">
-	      <img class="d-block img-fluid" src="{% static "homepage/four.jpg" %}" alt="carousel_four">
-	    </div>
-
-	    <div class="item">
-	      <img class="d-block img-fluid" src="{% static "homepage/five.jpg" %}" alt="carousel_five">
-	    </div>
-	  </div>
-	</div>
-</div>
-
-<div class="container">
-   <h2 align="center">Monte Christo Trade Corp.</h2><br>
-   <p>Located in the heart of Downtown Los Angeles, Monte Christo Trade Corp. was founded in 1997. It has been operating under the same ownership since inception. Manufacturing and wholesaling jewelry and fashion accessories is our specialty.</p>
-</div>
-
-<hr>
-
-<!-- Movie Block -->
-<div class="container">
-	<div class="row">
-		<div class="col-md-6">
-			<iframe src="http://player.vimeo.com/video/101231747?title=0&amp;byline=0&amp;portrait=0&amp;color=FFFFFF&amp;autoplay=0&amp;loop=0&amp;wmode=transparent" height="300" frameborder="0" class="col-md-12"></iframe>
-		</div>
-		<div class="col-md-6">
-		<h3 align="right">MADE IN THE USA</h3><br>
-		<p>We proudly embrace our culture and community.&nbsp; We are dedicated to bringing jobs and prosperity back to the United States, while utilizing high standards in our manufacturing processes and components.</p>
+			<div class="item">
+				<img class="d-block img-fluid" src="{% static 'homepage/images/five.jpg' %}" alt="carousel_five"></img>
+			</div>
 		</div>
 	</div>
-</div>
 
-<hr>
+	<div id="home">
+		<div>
+			<h2 align="center">Monte Christo Trade Corp.</h2>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<p>Located in the heart of Downtown Los Angeles, Monte Christo Trade Corp. was founded in 1997. It has been operating under
+					the same ownership since inception. Manufacturing and wholesaling jewelry and fashion accessories is our specialty.</p>
+			</div>
+		</div>
+	</div>
 
-<!-- Manufacturing information block -->
-<div class="container" id="manufacturing">
-	<h3>MANUFACTURING</h3>
-	<p>Monte Christo Trade Corp. is equipped with the latest hi-tech induction casting and spin casting machinery, gas-fired furnaces, high speed tumbling machines, and latest 3D CAD and CNC design/printing software and equipment. We also maintain a wide variety of vintage machinery for specialty needs. We are constantly acquiring new machinery and extending our capabilities in order to keep up with our clients needs and demands. The content on this page highlights some basic capabilities and is intended for educational use.</p>
-</div>
-<div class="container">
+	<hr>
+
+	<!-- Movie Block -->
+	<div id="movie">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe src="http://player.vimeo.com/video/101231747?title=0&amp;byline=0&amp;portrait=0&amp;color=FFFFFF&amp;autoplay=0&amp;loop=0&amp;wmode=transparent"
+					    height="300" frameborder="0" class="col-md-12"></iframe>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>MADE IN THE USA</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p>We proudly embrace our culture and community.&nbsp; We are dedicated to bringing jobs and prosperity back to the United
+							States, while utilizing high standards in our manufacturing processes and components.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<!-- Manufacturing information block -->
+	<div id="manufacturing">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Manufacturing</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p>Monte Christo Trade Corp. is equipped with the latest hi-tech induction casting and spin casting machinery, gas-fired
+					furnaces, high speed tumbling machines, and latest 3D CAD and CNC design/printing software and equipment. We also maintain
+					a wide variety of vintage machinery for specialty needs. We are constantly acquiring new machinery and extending our
+					capabilities in order to keep up with our clients needs and demands. The content on this page highlights some basic
+					capabilities and is intended for educational use.</p>
+			</div>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-		    <div class="hovereffect thumbnail">
-		        <img src="{% static "homepage/casting.jpg" %}" alt="casting_image">
-		        <div class="overlay">
-		           <a class="info" href="#"><h2>Casting</h2></a>
-		        </div>
-		    </div>
+			<div class="thumbnail">
+				<img src="{% static 'homepage/images/casting.jpg' %}" alt="casting_image">
+				<div class="overlay">
+					<a class="info" href="{% url 'homepage:machine-detail' 'casting' %}">
+						<h2>Casting</h2>
+					</a>
+				</div>
+			</div>
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-		    <div class="hovereffect thumbnail">
-		        <img src="{% static "homepage/forging-pressing.jpg" %}" alt="forging_pressing_image">
-		        <div class="overlay">
-		           <a class="info" href="#"><h2>Forging and Pressing</h2></a>
-		        </div>
-		    </div>
+			<div class="thumbnail">
+				<img src="{% static 'homepage/images/forging-pressing.jpg' %}" alt="forging_pressing_image">
+				<div class="overlay">
+					<a class="info" href="{% url 'homepage:machine-detail' 'forging_pressing' %}">
+						<h2>Forging and Pressing</h2>
+					</a>
+				</div>
+			</div>
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-		    <div class="hovereffect thumbnail">
-		        <img src="{% static "homepage/annealing-soldering.jpg" %}" alt="annealing_image">
-		        <div class="overlay">
-		           <a class="info" href="#"><h2>Annealing and Soldering</h2></a>
-		        </div>
-		    </div>
+			<div class="thumbnail">
+				<div class="overlay">
+					<a class="info" href="{% url 'homepage:machine-detail' 'annealing_soldering' %}">
+						<h2>Annealing and Soldering</h2>
+					</a>
+				</div>
+				<img src="{% static 'homepage/images/annealing-soldering.jpg' %}" alt="annealing_image">
+			</div>
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-		    <div class="hovereffect thumbnail">
-		        <img class="img-responsive" src="{% static "homepage/polishing.jpg" %}" alt="polishing_image">
-		        <div class="overlay">
-		           <a class="info" href="#"><h2>Polishing</h2></a>
-		        </div>
-		    </div>
+			<div class="thumbnail">
+				<img class="img-responsive" src="{% static 'homepage/images/polishing.jpg' %}" alt="polishing_image">
+				<div class="overlay">
+					<a class="info" href="{% url 'homepage:machine-detail' 'polishing' %}">
+						<h2>Polishing</h2>
+					</a>
+				</div>
+			</div>
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-		    <div class="hovereffect thumbnail">
-		        <img class="img-responsive" src="{% static "homepage/wirerolling.jpg" %}" alt="wire_rolling_image">
-		        <div class="overlay">
-		           <a class="info" href="#"><h2>Wire Rolling</h2></a>
-		        </div>
-		    </div>
+			<div class="thumbnail">
+				<img class="img-responsive" src="{% static 'homepage/images/wirerolling.jpg' %}" alt="wire_rolling_image">
+				<div class="overlay">
+					<a class="info" href="{% url 'homepage:machine-detail' 'wire_rolling' %}">
+						<h2>Wire Rolling</h2>
+					</a>
+				</div>
+			</div>
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-		    <div class="hovereffect thumbnail">
-		        <img class="img-responsive" src="{% static "homepage/chainmaking.jpg" %}" alt="chain_making_image">
-		        <div class="overlay">
-		           <a class="info" href="#"><h2>Chain Making</h2></a>
-		        </div>
-		    </div>
+			<div class="thumbnail">
+				<img class="img-responsive" src="{% static 'homepage/images/chainmaking.jpg' %}" alt="chain_making_image">
+				<div class="overlay">
+					<a class="info" href="{% url 'homepage:machine-detail' 'chainmaking' %}">
+						<h2>Chain Making</h2>
+					</a>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
+	
+	<hr>
 
-<hr>
-
-<!-- Quote block -->
-<div class="container">
-	<div class="row">
-		<blockquote>
-			<p>&quot;If you hear a voice within you say 'you cannot paint,' then by all means paint and that voice will be silenced.&quot;</p>
-			<small><cite title="Source Title">Vincent Van Gogh</cite></small>
-		</blockquote>
-	</div>
-</div>
-
-<hr>
-
-<!-- Every step block -->
-<div class="container" id="services">
-	<h3>Our Services</h3>
-	<span>We will be there every step of the way.</span>
-	<div class="row">
-		<div class="col-md-3">
-			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;DESIGN
-		</div>
-		<div class="col-md-3">
-			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;PACKAGE
-		</div>
-		<div class="col-md-3">
-			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;MANUFACTURE
-		</div>
-		<div class="col-md-3">
-			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;SELL
+	<!-- Quote block -->
+	<div id="quote">
+		<div class="row">
+			<div class="col-md-12">
+				<blockquote>
+					<p>&quot;If you hear a voice within you say 'you cannot paint,' then by all means paint and that voice will be silenced.&quot;</p>
+					<footer><cite title="Vincent Van Gogh">Vincent Van Gogh</cite></footer>
+				</blockquote>
+			</div>
 		</div>
 	</div>
-</div>
 
-<hr>
+	<hr>
 
-<!-- Client list -->
-<div class="container">
-	<h3>Some &nbsp;Of &nbsp;Our &nbsp;Clients</h3>
-	<div class="row">
-	  <div class="col-md-6">
-	  	<div class="row">
-	      <div class="col-md-5">
-	      	<h4>Ed Hardy</h4>
-		  </div>
-		  <div class="col-md-6">
-		  	<h4>Harley Davidson Motorcycles</h4>
-		  </div>
+	<!-- Every step block -->
+	<div id="services">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Our Services</h3>
+			</div>
+    </div>
+    <div class="row">
+			<div class="col-md-12">
+				<h4>We will be there every step of the way.</h4>
+			</div>
 		</div>
-	  </div>
-	  <div class="col-md-6">
-		  <div class="row">
-			  <div class="col-md-6">
-			  	<h4>True Religion Jeans</h4>
-			  </div>
-			  <div class="col-md-6">
-			  	<h4>Bebe</h4>
-			  </div>
-		  </div>
-	  </div>
+    <br>
+		<div class="row text-center">
+			<div class="col-md-3">
+					<p><i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i> DESIGN </p>
+			</div>
+			<div class="col-md-3">
+				<p><i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i> PACKAGE </p>
+			</div>
+			<div class="col-md-3">
+				<p><i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i> MANUFACTURE </p>
+			</div>
+			<div class="col-md-3">
+				<p><i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i> SELL </p>
+			</div>
+		</div>
 	</div>
-	<br>
-	<div class="row">
-	  <div class="col-md-4">
-      	<center><h4>Room 101</h4></center>
-	  </div>
-	  <div class="col-md-4">
-      	<center><h4>White Trash Charms</h4></center>
-	  </div>
-	  <div class="col-md-4">
-      	<center><h4>A &nbsp;&amp; &nbsp;G Rock</h4></center>
-	  </div> 
+
+	<hr>
+
+	<!-- Client list -->
+	<div id="client-list">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Some Of Our Clients</h3>
+			</div>
+		</div>
+		<div class="row text-center">
+			<div class="col-md-4 col-xs-12">
+				<h4>Ed Hardy</h4>
+			</div>
+			<div class="col-md-4 col-xs-12">
+				<h4>Harley Davidson Motorcycles</h4>
+			</div>
+			<div class="col-md-4 col-xs-12">
+				<h4>Room 101</h4>
+			</div>
+			<div class="col-md-4 col-xs-12">
+				<h4>White Trash Charms</h4>
+			</div>
+			<div class="col-md-4 col-xs-12">
+				<h4>A &amp; G Rock</h4>
+			</div>
+			<div class="col-md-4 col-xs-12">
+				<h4> Al Beres </h4>
+			</div>
+		</div>
 	</div>
-</div>
 
-<hr>
+	<hr>
 
-<!-- Quote block -->
-<div class="container">
-	<div class="row">
-		<blockquote class="blockquote-reverse">
-			<p>&quot;I put my heart and my soul into my work, and have lost my mind in the process.&quot;</p>
-			<small><cite title="Source Title">Vincent Van Gogh</cite></small>
-		</blockquote>
+	<!-- Quote block -->
+	<div id="quote-2">
+		<div class="row">
+			<div class="col-md-12">
+				<blockquote class="blockquote-reverse">
+					<p>&quot;I put my heart and my soul into my work, and have lost my mind in the process.&quot;</p>
+					<small><cite title="Source Title">Vincent Van Gogh</cite></small>
+				</blockquote>
+		</div>
+		</div>
 	</div>
-</div>
 
-<hr>
+	<hr>
 
-<!-- Address and contact -->
-<div class="container" id="contact">
-	<h3>Get &nbsp;In &nbsp;Touch</h3>
-	<div class="row">
-		<div class="col-md-6">
-			<div class="row">
-				<div class="col-md-6">
-					<address>
-						<h4>Address</h4>
-						707 S. Broadway Suite 101<br>
-						Los Angeles, CA 90014<br>
-					</address>
-                </div>
-                <div class="col-md-6">
-					<address>
+	<!-- Address and contact -->
+	<div id="contact">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Get In Touch</h3>
+			</div>
+		</div>
+		<div class="row mobile-center">
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-6">
+						<address>
+							<h4>Address</h4>
+							<p>707 S. Broadway Suite 101</p>
+							<p>Los Angeles, CA 90014</p>
+						</address>
+					</div>
+					<div class="col-md-6">
 						<h4>Business Hours</h4>
-						M-F 9 am to 6 pm (PST)<br>
-					</address>
-                </div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<address>
+						<p>M-F 9 am to 6 pm (PST)</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
 						<h4>Phone</h4>
-						<abbr title="Phone"></abbr> (213) 629-2958
-					</address>
-                </div>
-                <div class="col-md-6">
-					<address>
+						<p><abbr title="Phone"></abbr> (213) 629-2958</p>
+					</div>
+					<div class="col-md-6">
 						<h4>Email</h4>
-						<strong>General:</strong> info@mctradecorp.net</a><br>
-						<strong>Sales:</strong> sales@mctradecorp.net</a>
-					</address>
-                </div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-				  <iframe width="100%" height="260" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJwZlIWbXHwoARfMTs3uF5Bxk&key=AIzaSyD81qM8an7Z_A2RZwgreT0Vf1JcprB8noc" allowfullscreen></iframe>
+						<p><strong>General:</strong> <a href="mailto:info@mctradecorp.net">info@mctradecorp.net</a></p>
+						<p><strong>Sales:</strong> <a href="mailto:sales@mctradecorp.net">sales@mctradecorp.net</a></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h4>Map</h4>
+						<div style="padding-bottom: 15px">
+							<div class="embed-responsive embed-responsive-16by9">
+								<iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJwZlIWbXHwoARfMTs3uF5Bxk&key=AIzaSyD81qM8an7Z_A2RZwgreT0Vf1JcprB8noc"></iframe>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="row">
-				<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-				  <div class="form-group">
-				  	<label class="control-label" for="focusedInput">Name:</label>
-					<input class="form-control" id="formdata-name" type="text" placeholder="Your name">
-				  </div>
+			<div class="col-md-6">
+        <form action="" method="post">
+        {% csrf_token %}
+				<div class="row">
+					<div class="col-md-4">
+            <div class="fieldWrapper form-group">
+              <label class="control-label" for="{{ form.name.id_for_label }}">Your name:</label>
+              {{ form.name }}
+            </div>
+					</div>
+					<div class="col-md-4">
+            <div class="form-group fieldWrapper">
+              <label class="control-label" for="{{ form.sender_email.id_for_label }}">Your email:</label>
+              {{ form.sender_email }}
+            </div>
+					</div>
+					<div class="col-md-4">
+            <div class="form-group fieldWrapper">
+              <label class="control-label" for="{{ form.subject.id_for_label }}">Subject:</label>
+              {{ form.subject }}
+            </div>
+					</div>
 				</div>
-				<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-				  <div class="form-group">
-				    <label class="control-label" for="focusedInput">Email:</label>
-				  <input class="form-control" type="formdata-email"  type="email" placeholder="Your email">
-				  </div>
+				<div class="row">
+					<div class="col-md-12">
+            <div class="form-group fieldWrapper">
+              <label class="control-label" for="{{ form.message.id_for_label }}">Your message:</label>
+              {{ form.message }}
+            </div>
+					</div>
 				</div>
-				<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-				  <div class="form-group">
-				    <label class="control-label" for="focusedInput">Subject:</label>
-				  <input class="form-control" type="formdata-subject" type="subject" placeholder="Subject">
-				  </div>
+				<div class="row">
+					<div class="col-md-12 mobile-center">
+						<button type="submit" class="btn btn-default outline">Submit</button>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-			  <div class="col-md-12">
-				<div class="form-group">
-				  <label class="control-label" for="inputError">Your Message:</label>
-				  <textarea class="form-control" rows="15" id="formdata-message" type="text" placeholder="Add a brief message..."></textarea>
-				</div>
-			  </div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-				<button type="submit" class="btn btn-default outline">Submit</button>
-				</div>
+        </form>
 			</div>
 		</div>
 	</div>
+
 </div>
-
+<!-- main container end -->
+{% endblock %} {% block js-bottom %}
+<!-- Carousel -->
+<script language="JavaScript" type="text/javascript">
+	$(document).ready(function () {
+		$('.carousel').carousel({
+			interval: 5000
+		})
+	});
+</script>
 {% endblock %}
-
