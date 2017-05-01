@@ -166,7 +166,8 @@ SASS_PRECISION = 8
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-# TODO: Add a host email and password.
+# TODO: Add a host email and password; corresponds to the account from which
+# emails will be sent.
 EMAIL_HOST_USER = pass
 EMAIL_HOST_PASSWORD = pass
 EMAIL_USE_TLS = True
