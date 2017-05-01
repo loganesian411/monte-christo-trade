@@ -23,6 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # TODO: Add a secret key.
 SECRET_KEY = pass
 
+# TODO: Add admin information ('Name', 'Email').
+ADMINS = []
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -43,9 +46,9 @@ PREREQ_APPS = [
 
 # TODO: Add any apps that the project relies on.
 PROJECT_APPS = [
-    'homepage',
+    'homepage.apps.HomepageConfig',
     'webstore',
-    'dashboard',
+    'dashboard.apps.DashboardConfig',
     # This allows SASS processing
     'sass_processor'
 ]
@@ -67,7 +70,7 @@ ROOT_URLCONF = 'monte_christo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -158,3 +161,20 @@ STATICFILES_FINDERS = [
 ]
 
 SASS_PRECISION = 8
+
+# Email backend
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+# TODO: Add a host email and password.
+EMAIL_HOST_USER = pass
+EMAIL_HOST_PASSWORD = pass
+EMAIL_USE_TLS = True
+
+# Other settings
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+# SECURE_BROWSER_XSS_FILTER = True
+SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# X_FRAME_OPTIONS = 'DENY'

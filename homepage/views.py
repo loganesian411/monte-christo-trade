@@ -1,6 +1,9 @@
+from django.conf import settings
 from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.template import Context
+from django.template.loader import get_template
 from django.urls import reverse
 
 import forms
@@ -14,7 +17,12 @@ def index(request):
       subject = contact_form.cleaned_data['subject']
       sender_email = contact_form.cleaned_data['sender_email']
       message = contact_form.cleaned_data['message']
-      send_mail(subject, message, sender_email, ['test@example.com'])
+
+      email_template = get_template('homepage/contact_template.txt')
+      email_context = Context({'contact_name': name, 'contact_email': sender_email, 'message': message})
+      email_content = email_template.render(email_context)
+      # TODO: Update this with the proper recipient list.
+      send_mail(subject, email_content, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER])
       return HttpResponseRedirect(reverse('homepage:message-success'))
   else:
 	  contact_form = forms.ContactForm()
