@@ -87,8 +87,12 @@ h3
 
 // CAROUSEL
 .carousel,
-.carousel-inner
+.carousel-inner,
+.carousel-inner .item
   max-height: 600px;
+
+  .item img
+    width: 100%
 
 footer
   padding: 10px 0px;
@@ -96,17 +100,23 @@ footer
 #carousel
   padding-top: $navbar-padding-horizontal;
 
-// THUMBNAILS
-.thumbnail
-  width : 100%;
-  height: 150px;
-  position: relative;
-  overflow: hidden;
-  img
-   width: 100%;
-   height: auto;
-   display: block;
-  .overlay
-    position: absolute;
-    left: 25%;
-    top: 25%;
+#machine-carousel,
+#machine-carousel > .carousel-inner,
+#machine-carousel > .carousel-inner > .item
+  height: 50vh;
+  max-height: 50vh;
+
+#forging-pressing-img
+  transform: translateY(-40%);
+
+#chainmaking-img
+  transform: translateY(-10%);
+
+#casting-img
+  transform: translateY(-15%);
+
+#wirerolling-img
+  transform: translateY(-10%);
+
+.btn-grey
+  background-color: $grey-base;
