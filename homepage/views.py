@@ -18,7 +18,7 @@ def index(request):
       message = contact_form.cleaned_data['message']
 
       email_template = get_template('homepage/contact_template.txt')
-      email_context = Context{'contact_name': name, 'contact_email': sender_email, 'message': message}
+      email_context = {'contact_name': name, 'contact_email': sender_email, 'message': message}
       email_content = email_template.render(email_context)
       # TODO: Update this with the proper recipient list.
       send_mail(subject, email_content, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER])
