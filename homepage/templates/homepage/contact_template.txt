@@ -1,8 +1,8 @@
 Contact Name:
-{{ contact_name }}
+{{ contact_name|safe|striptags }}
 
 Contact Email:
-{{ contact_email }}
+{{ contact_email|safe|striptags }}
 
 Message:
 {{ message|safe|striptags }}
