@@ -220,127 +220,129 @@
 					<h4>Room 101</h4>
 				</div>
 				<div class="col-md-4 col-xs-12">
-					<h4>White Trash Charms</h4>
+					<a href="https://whitetrashcharms.com/">
+						<h4>White Trash Charms</h4>
+					</a>
 				</div>
 				<div class="col-md-4 col-xs-12">
 					<h4>A &amp; G Rock</h4>
 				</div>
 				<div class="col-md-4 col-xs-12">
-					<h4> Al Beres </h4>
+					<a href="https://alberesbuckles.com/">
+						<h4> Al Beres </h4>
+					</a>
 				</div>
 			</div>
-		</div>
 
-		<hr>
+			<hr>
 
-		<!-- Quote block -->
-		<div id="quote-2">
-			<div class="row">
-				<div class="col-md-12">
-					<blockquote class="blockquote-reverse">
-						<p>&quot;I put my heart and my soul into my work, and have lost my mind in the process.&quot;</p>
-						<small><cite title="Source Title">Vincent Van Gogh</cite></small>
-					</blockquote>
+			<!-- Quote block -->
+			<div id="quote-2">
+				<div class="row">
+					<div class="col-md-12">
+						<blockquote class="blockquote-reverse">
+							<p>&quot;I put my heart and my soul into my work, and have lost my mind in the process.&quot;</p>
+							<small><cite title="Source Title">Vincent Van Gogh</cite></small>
+						</blockquote>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<hr>
+			<hr>
 
-		<!-- Address and contact -->
-		<div id="contact">
-			<div class="row">
-				<div class="col-md-12">
-					<h3>Get In Touch</h3>
-				</div>
-			</div>
-			<div class="row mobile-center">
-				<div class="col-md-6">
-					<div class="row">
-						<div class="col-md-6">
-							<address>
-								<h4>Address</h4>
-								<p>707 S. Broadway Suite 101</p>
-								<p>Los Angeles, CA 90014</p>
-							</address>
-						</div>
-						<div class="col-md-6">
-							<h4>Business Hours</h4>
-							<p>M-F 9 am to 6 pm (PST)</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<h4>Phone</h4>
-							<p><abbr title="Phone"></abbr> (213) 629-2958</p>
-						</div>
-						<div class="col-md-6">
-							<h4>Email</h4>
-							<p><strong>General:</strong> <a href="mailto:info@mctradecorp.net">info@mctradecorp.net</a></p>
-							<p><strong>Sales:</strong> <a href="mailto:sales@mctradecorp.net">sales@mctradecorp.net</a></p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<h4>Map</h4>
-							<div style="padding-bottom: 15px">
-								<div class="embed-responsive embed-responsive-16by9">
-									<iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJwZlIWbXHwoARfMTs3uF5Bxk&key=AIzaSyD81qM8an7Z_A2RZwgreT0Vf1JcprB8noc"></iframe>
-								</div>
-							</div>
-						</div>
+			<!-- Address and contact -->
+			<div id="contact">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Get In Touch</h3>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<form action="" method="post">
-						{% csrf_token %}
+				<div class="row mobile-center">
+					<div class="col-md-6">
 						<div class="row">
-							<div class="col-md-4">
-								<div class="fieldWrapper form-group">
-									<label class="control-label" for="{{ form.name.id_for_label }}">Your name:</label> {{ form.name }}
-								</div>
+							<div class="col-md-6">
+								<address>
+									<h4>Address</h4>
+									<p>707 S. Broadway Suite 101</p>
+									<p>Los Angeles, CA 90014</p>
+								</address>
 							</div>
-							<div class="col-md-4">
-								<div class="form-group fieldWrapper">
-									<label class="control-label" for="{{ form.sender_email.id_for_label }}">Your email:</label> {{ form.sender_email
-									}}
-								</div>
+							<div class="col-md-6">
+								<h4>Business Hours</h4>
+								<p>M-F 9 am to 6 pm (PST)</p>
 							</div>
-							<div class="col-md-4">
-								<div class="form-group fieldWrapper">
-									<label class="control-label" for="{{ form.subject.id_for_label }}">Subject:</label> {{ form.subject }}
-								</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<h4>Phone</h4>
+								<p><abbr title="Phone"></abbr> (213) 629-2958</p>
+							</div>
+							<div class="col-md-6">
+								<h4>Email</h4>
+								<p><strong>General:</strong> <a href="mailto:info@mctradecorp.net">info@mctradecorp.net</a></p>
+								<p><strong>Sales:</strong> <a href="mailto:sales@mctradecorp.net">sales@mctradecorp.net</a></p>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<div class="form-group fieldWrapper">
-									<label class="control-label" for="{{ form.message.id_for_label }}">Your message:</label> {{ form.message }}
+								<h4>Map</h4>
+								<div style="padding-bottom: 15px">
+									<div class="embed-responsive embed-responsive-16by9">
+										<iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJwZlIWbXHwoARfMTs3uF5Bxk&key=AIzaSyD81qM8an7Z_A2RZwgreT0Vf1JcprB8noc"></iframe>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-md-12 mobile-center">
-								<button type="submit" class="btn btn-default outline">Submit</button>
+					</div>
+					<div class="col-md-6">
+						<form action="" method="post">
+							{% csrf_token %}
+							<div class="row">
+								<div class="col-md-4">
+									<div class="fieldWrapper form-group">
+										<label class="control-label" for="{{ form.name.id_for_label }}">Your name:</label> {{ form.name }}
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group fieldWrapper">
+										<label class="control-label" for="{{ form.sender_email.id_for_label }}">Your email:</label> {{ form.sender_email}}
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group fieldWrapper">
+										<label class="control-label" for="{{ form.subject.id_for_label }}">Subject:</label> {{ form.subject }}
+									</div>
+								</div>
 							</div>
-						</div>
-					</form>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group fieldWrapper">
+										<label class="control-label" for="{{ form.message.id_for_label }}">Your message:</label> {{ form.message }}
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 mobile-center">
+									<button type="submit" class="btn btn-default outline">Submit</button>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
 
-	</div>
-	<!-- main container end -->
-	{% endblock %} {% block js-bottom %}
-	<!-- Carousel -->
-	<script language="JavaScript" type="text/javascript">
-		$(document).ready(function () {
-			$('.carousel').carousel({
-				interval: 5000
-			})
-			$('#machine-carousel').carousel({
-				interval: 1000
-			})
-		});
-	</script>
-	{% endblock %}
+		</div>
+		<!-- main container end -->
+		{% endblock %} {% block js-bottom %}
+		<!-- Carousel -->
+		<script language="JavaScript" type="text/javascript">
+			$(document).ready(function () {
+				$('.carousel').carousel({
+					interval: 5000
+				})
+				$('#machine-carousel').carousel({
+					interval: 1000
+				})
+			});
+		</script>
+		{% endblock %}
