@@ -57,6 +57,7 @@ body
 .container
   background-clip: padding-box
   background-color: #FFFFFF
+  padding-bottom: 15px;
 .navbar,
 footer,
 header,
@@ -72,6 +73,13 @@ h3
 // Center text in rows if we are on a mobile form factor
 @media screen and (max-width:$screen-md)
   .mobile-center
+    text-align: center;
+    p
+     text-align: center;
+
+// Center text in rows if we are on a mobile form factor
+@media screen and (max-width:$screen-sm)
+  .mobile-center-sm
     text-align: center;
     p
      text-align: center;
