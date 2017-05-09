@@ -63,7 +63,9 @@
 	<script src="{% static 'homepage/js/bootstrap.min.js' %}"></script>
 	<script src="{% static 'homepage/js/scrollspy.js' %}"></script>
 	<!--<script src="{% static "homepage/js/base.js" %}"></script>-->
-
+  {% if GOOGLE_ANALYTICS_PROPERTY_ID %}
+    {% include "homepage/ga.html"%}
+  {% endif %}
 	{% block js-bottom %} {% endblock %}
 </body>
 

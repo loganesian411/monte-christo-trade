@@ -78,6 +78,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'homepage.context_processors.analytics',
             ],
         },
     },
@@ -175,7 +176,12 @@ EMAIL_USE_TLS = True
 # Other settings
 # SECURE_CONTENT_TYPE_NOSNIFF = True
 # SECURE_BROWSER_XSS_FILTER = True
-SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# X_FRAME_OPTIONS = 'DENY'
+# SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+X_FRAME_OPTIONS = 'DENY'
+
+# Google Analytics
+# TODO: Add an appropriate google analytics id and the relevant domain.
+GOOGLE_ANALYTICS_PROPERTY_ID = pass
+GOOGLE_ANALYTICS_DOMAIN = pass
