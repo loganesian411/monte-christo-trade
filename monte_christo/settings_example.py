@@ -89,16 +89,17 @@ WSGI_APPLICATION = 'monte_christo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-# Note that the database config is already set to use Postgres 
-# as the project uses some Postgres-specific field types.
+# Note that the database config is already set to use MySQL because
+# Dreamhost (the target hosting service) only support MySQL.
+# TODO: Add database credentials.
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql', 
+        'ENGINE': 'django.db.backends.mysql', 
         'NAME': '',
         'USER': '',
         'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
