@@ -1,6 +1,5 @@
 from __future__ import unicode_literals
 
-from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 
@@ -110,18 +109,21 @@ class JewelryType(models.Model):
     print self.jewelry_type
   
 
-class JewelrySizeSpecifications(models.Model):
-  sizes = ArrayField(models.DecimalField(max_digits=5, decimal_places=2))
+class JewelrySizeSpecification(models.Model):
+  min_size = models.FloatField()
+  max_size = models.FloatField(null=True, blank=True)
+  step_size = models.FloatField(null=True, blank=True)
+  units = models.CharField(max_length=10)
 
 
 @python_2_unicode_compatible
-class Products(models.Model):
+class Product(models.Model):
   style_number = models.AutoField(primary_key=True)
   jewelry_type = models.ForeignKey(JewelryType)
   metal_types = models.ManyToManyField(MetalType)
   finish_types = models.ManyToManyField(FinishType)
   # TODO(loganesian): Verify if this is the right way to on_delete.
-  available_sizes = models.ForeignKey(JewelrySizeSpecifications, on_delete=models.SET_NULL, blank=True, null=True)
+  available_sizes = models.ForeignKey(JewelrySizeSpecification, on_delete=models.SET_NULL, blank=True, null=True)
   unit_price = models.DecimalField(max_digits=10, decimal_places=2)
 
   def __str__(self):
@@ -129,13 +131,18 @@ class Products(models.Model):
 
 # TODO(loganesian): Should this inherit from Products or have it as a ForeignKey.
 class CustomerProduct(models.Model):
-  base_product = models.ForeignKey(Products, on_delete=models.CASCADE)
+  base_product = models.ForeignKey(Product, on_delete=models.CASCADE)
   unit_number = models.IntegerField()
   # TODO(loganesian): Find a way to limit these choices based on the metal_types of base product.
   finish_type = models.ForeignKey(FinishType, on_delete=models.SET_NULL, blank=True, null=True) 
   metal_type = models.ForeignKey(MetalType, on_delete=models.SET_NULL, blank=True, null=True)
-  size = models.ForeignKey(JewelrySizeSpecifications, on_delete=models.SET_NULL, blank=True, null=True)
+  size = models.ForeignKey(JewelrySizeSpecification, on_delete=models.SET_NULL, blank=True, null=True)
 
+
+# TODO(loganesian): Will need to properly handle media/file uploads
+# https://docs.djangoproject.com/en/1.11/ref/models/fields/#django.db.models.FileField
+class Attachment(models.Model):
+  attachment_file = models.FileField()
 
 class Order(models.Model):
 	# Status choices.
@@ -158,7 +165,7 @@ class Order(models.Model):
 	company = models.ForeignKey(Company, models.SET_NULL, blank=True, null=True)
 	product = models.ForeignKey(CustomerProduct, on_delete=models.CASCADE)
 	# TODO(loganesian): Should it be size restricted?
-	order_attachments = ArrayField(models.FileField(), size=8, blank=True, null=True)
+	order_attachments = models.ManyToManyField(Attachment)
 	customer_product_description = models.TextField()
 	total_price = models.DecimalField(max_digits=10, decimal_places=2)
 	notification_opt_in = models.BooleanField('Notifications opt-in', default=False)
@@ -178,5 +185,3 @@ class OrderComment(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	content = models.TextField()
 	timestamp = models.DateTimeField(auto_now_add=True)
-
-
