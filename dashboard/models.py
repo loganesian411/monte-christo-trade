@@ -24,7 +24,12 @@ class Address(models.Model):
   country = models.CharField(max_length=150)
 
   def __str__(self):
-    pass
+    "{0} {1} {2}, {3} {4}, {5}".format(self.street_one,
+                                       self.street_two,
+                                       self.city,
+                                       self.state,
+                                       self.zip_code,
+                                       self.country)
 
 @python_2_unicode_compatible
 class Customer(models.Model):
@@ -65,6 +70,9 @@ class PointsOfContact(models.Model):
   customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
   company = models.ForeignKey(Company, on_delete=models.CASCADE)
   primary_poc = models.BooleanField('Primary point-of-contact', default=False)
+
+  def __str__(self):
+    return "{0} point of contact: {1}".format(self.company, self.customer)
 
 
 @python_2_unicode_compatible
@@ -117,6 +125,9 @@ class JewelrySizeSpecification(models.Model):
   step_size = models.FloatField(null=True, blank=True)
   units = models.CharField(max_length=10)
 
+  def __str__(self):
+    return "Sizes {0}: min: {1}, max: {2}: increments: {3}.".format(self.units, self.min_size, self.max_size, self.step_size)
+
 
 @python_2_unicode_compatible
 class Product(models.Model):
@@ -141,10 +152,15 @@ class CustomerProduct(models.Model):
   metal_type = models.ForeignKey(MetalType, on_delete=models.SET_NULL, blank=True, null=True)
   size = models.ForeignKey(JewelrySizeSpecification, on_delete=models.SET_NULL, blank=True, null=True)
 
+  def __str__(self):
+    return "Base product: {0} x{1}, specifications: {2}, {3}.".format(self.base_product,
+                                                                      self.unit_number,
+                                                                      self.finish_type,
+                                                                      self.metal_type)
+
 
 # TODO(loganesian): Will need to properly handle media/file uploads
 # https://docs.djangoproject.com/en/1.11/ref/models/fields/#django.db.models.FileField
-@python_2_unicode_compatible
 class Attachment(models.Model):
   attachment_file = models.FileField()
 
@@ -183,6 +199,9 @@ class Order(models.Model):
 	# TODO(loganesian): Should this be included?
 	product_pickup_shipment_data = models.DateTimeField()
 
+	def __str__(self):
+		return "{0} order: {1}".format(self.customer, self.product)
+
 # TODO(loganesian): User is company employee or a customer?
 @python_2_unicode_compatible
 class OrderComment(models.Model):
@@ -190,3 +209,6 @@ class OrderComment(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	content = models.TextField()
 	timestamp = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return "{0} -- {1}: {2}".format(self.order, self.user, self.content)
