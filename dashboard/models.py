@@ -60,6 +60,7 @@ class Company(models.Model):
     return self.name
 
 
+@python_2_unicode_compatible
 class PointsOfContact(models.Model):
   customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
   company = models.ForeignKey(Company, on_delete=models.CASCADE)
@@ -109,6 +110,7 @@ class JewelryType(models.Model):
     print self.jewelry_type
   
 
+@python_2_unicode_compatible
 class JewelrySizeSpecification(models.Model):
   min_size = models.FloatField()
   max_size = models.FloatField(null=True, blank=True)
@@ -123,15 +125,16 @@ class Product(models.Model):
   metal_types = models.ManyToManyField(MetalType)
   finish_types = models.ManyToManyField(FinishType)
   # TODO(loganesian): Verify if this is the right way to on_delete.
-  available_sizes = models.ForeignKey(JewelrySizeSpecification, on_delete=models.SET_NULL, blank=True, null=True)
+  available_sizes = models.ForeignKey(JewelrySizeSpecification, on_delete=models.PROTECT, blank=True, null=True)
   unit_price = models.DecimalField(max_digits=10, decimal_places=2)
 
   def __str__(self):
     print self.style_number
 
 # TODO(loganesian): Should this inherit from Products or have it as a ForeignKey.
+@python_2_unicode_compatible
 class CustomerProduct(models.Model):
-  base_product = models.ForeignKey(Product, on_delete=models.CASCADE)
+  base_product = models.ForeignKey(Product, on_delete=models.PROTECT)
   unit_number = models.IntegerField()
   # TODO(loganesian): Find a way to limit these choices based on the metal_types of base product.
   finish_type = models.ForeignKey(FinishType, on_delete=models.SET_NULL, blank=True, null=True) 
@@ -141,9 +144,11 @@ class CustomerProduct(models.Model):
 
 # TODO(loganesian): Will need to properly handle media/file uploads
 # https://docs.djangoproject.com/en/1.11/ref/models/fields/#django.db.models.FileField
+@python_2_unicode_compatible
 class Attachment(models.Model):
   attachment_file = models.FileField()
 
+@python_2_unicode_compatible
 class Order(models.Model):
 	# Status choices.
 	RECEIVED_REVIEWING = 'RR'
@@ -164,7 +169,6 @@ class Order(models.Model):
 	customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 	company = models.ForeignKey(Company, models.SET_NULL, blank=True, null=True)
 	product = models.ForeignKey(CustomerProduct, on_delete=models.CASCADE)
-	# TODO(loganesian): Should it be size restricted?
 	order_attachments = models.ManyToManyField(Attachment)
 	customer_product_description = models.TextField()
 	total_price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -180,6 +184,7 @@ class Order(models.Model):
 	product_pickup_shipment_data = models.DateTimeField()
 
 # TODO(loganesian): User is company employee or a customer?
+@python_2_unicode_compatible
 class OrderComment(models.Model):
 	order = models.ForeignKey(Order, on_delete=models.CASCADE)
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
