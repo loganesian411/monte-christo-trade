@@ -6,7 +6,7 @@ from .models import *
 admin.site.register(Customer)
 admin.site.register(Company)
 admin.site.register(Order)
-admin.site.register(Products)
+admin.site.register(Product)
 admin.site.register(CustomerProduct)
 admin.site.register(JewelryType)
 admin.site.register(FinishType)
