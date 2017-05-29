@@ -1,1 +1,0 @@
-$('body').scrollspy({ target: '#main-navbar' });
