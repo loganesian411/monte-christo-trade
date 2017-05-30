@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('homepage.index');
 });
 
-Route::get('/success', function () {
+Route::get('/confirmation', function () {
     return view('homepage.contact-confirmation');
 });
 

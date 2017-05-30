@@ -294,7 +294,43 @@
 					</div>
 				</div>
 			</div>
-			
+			<div class="col-md-6">
+				<form action="/confirmation" method="post">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="fieldWrapper form-group">
+								<label class="control-label" for="name">Your name:</label>
+								<input type="text" class="form-control" id="contact-name" name="name">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group fieldWrapper">
+								<label class="control-label" for="contact-email">Your email:</label>
+								<input type="text" class="form-control" id="contact-email" name="email">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group fieldWrapper">
+								<label class="control-label" for="">Subject:</label>
+								<input type="text" class="form-control" id="contact-subject" name="subject">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group fieldWrapper">
+								<label class="control-label" for="">Your message:</label>
+								<textarea class="form-control" id="contact-message" name="message" rows="15"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 mobile-center">
+							<button type="submit" class="btn btn-default outline">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 
