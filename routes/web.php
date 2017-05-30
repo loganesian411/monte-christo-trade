@@ -19,6 +19,6 @@ Route::get('/success', function () {
     return view('homepage.contact-confirmation');
 });
 
-Route::get('/machines/{machine_name}', function () {
-    return view('homepage.machine');
+Route::get('/machines/{machine_name}', function ($machine_name) {
+    return view('homepage.'.$machine_name);
 });

@@ -1,4 +1,4 @@
-@extends ('machine')
+@extends ('homepage.machine')
 
 @section('machine_name')
 <h2 align="center">Polishing</h2>
