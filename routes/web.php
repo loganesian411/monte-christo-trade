@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage.index');
+});
+
+Route::get('/success', function () {
+    return view('homepage.contact-confirmation');
+});
+
+Route::get('/machines/{machine_name}', function () {
+    return view('homepage.machine');
 });
