@@ -12,7 +12,7 @@
     
 </head>
 
-<body data-spy="scroll" data-target="#main-navbar">
+<body>
     <!-- Navbar -->
     @include ('layouts.nav')
 

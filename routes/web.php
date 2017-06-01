@@ -10,12 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use \App\Mail\ContactUs;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
     return view('homepage.index');
 });
 
-Route::get('/confirmation', function () {
+Route::post('/confirmation', function () {
+    
+    $name = request('name');
+    $email = request('email');
+    $subject = request('subject');
+    $text= request('message');
+
+    Mail::to(env('MCT_EMAIL'))->send(new ContactUs($name, $email, $subject, $text));
+
     return view('homepage.contact-confirmation');
 });
 

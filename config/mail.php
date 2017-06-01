@@ -101,6 +101,8 @@ return [
 
     'sendmail' => '/usr/sbin/sendmail -bs',
 
+    'pretend' => false, // Added from mailtrap example.
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings

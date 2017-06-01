@@ -217,7 +217,9 @@
 				<h4>Harley Davidson Motorcycles</h4>
 			</div>
 			<div class="col-md-4 col-xs-12">
-				<h4>Room 101</h4>
+				<a href="http://room101brand.com/">
+					<h4>Room 101</h4>
+				</a>
 			</div>
 			<div class="col-md-4 col-xs-12">
 				<a href="https://whitetrashcharms.com/">
