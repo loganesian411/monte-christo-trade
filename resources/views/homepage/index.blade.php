@@ -297,7 +297,7 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<form action="/confirmation" method="post">
+				<form action="/contact_us" method="post">
 					{{ csrf_field() }}
 					<div class="row">
 						<div class="col-md-4">

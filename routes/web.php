@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('homepage.index');
 });
 
-Route::post('/confirmation', function () {
+Route::post('/contact_us', function () {
     
     $name = request('name');
     $email = request('email');
