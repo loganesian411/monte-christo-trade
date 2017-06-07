@@ -14,19 +14,19 @@ class ContactUs extends Mailable
     public $name;
     public $email;
     public $subject;
-    public $text;
+    public $body;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name, $email, $subject, $text)
+    public function __construct($name, $email, $subject, $body)
     {
         $this->name = $name;
         $this->email = $email;
         $this->subject = $subject;
-        $this->text = $text;
+        $this->body = $body;
     }
 
     /**
