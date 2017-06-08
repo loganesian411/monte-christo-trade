@@ -1,0 +1,176 @@
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Custom Styling
+$page-background-color: #F6F6F6;
+$grey-base: #9C9C9C;
+
+$grey-dark: #262626;
+$black-color: #000000;
+$font-stack: raleway, sans-serif;
+$headings-color: $black-color;
+$font-family-sans-serif: $font-stack;
+$body-bg: $page-background-color;
+$navbar-default-color: $page-background-color;
+$navbar-default-link-color: $black-color;
+$headings-font-weight: 700;
+$font-size-base: 15px;
+
+
+// NAVIGATION & BRAND
+.navbar-brand {
+  font-feature-settings: 'liga';
+  font-style: normal;
+  text-align: left;
+  letter-spacing: 4px;
+  font-weight: 700;
+  line-height: 20px;
+  color: $black-color;
+}
+
+
+.logo-1 {
+  font-size: 20px;
+}
+
+.logo-2 {
+  font-size: 11px;
+}
+
+.navbar-nav {
+  li {
+    a {
+      font-weight: 700;
+      font-size: 12px;
+      color: $black-color;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+.navbar {
+	border-color: transparent;
+}
+
+// GENERAL
+// Pad the top of the document to allow for the header.
+body {
+  padding-top: 55px;
+  // Hyperlinks should not appear blue.
+  a {
+    color: $black-color;
+    text-decoration: None;
+  }
+}
+
+// Change all containers to have a white background,
+// except for the one in navigation.
+.container {
+  background-clip: padding-box;
+  background-color: #FFFFFF;
+  padding-bottom: 15px;
+}
+
+.navbar,
+footer,
+header,
+head, {
+  .container {
+    background-color: $page-background-color;
+  }
+}
+
+h2,
+h3 {
+  font-weight: normal;
+  letter-spacing: 6px;
+}
+
+// Center text in rows if we are on a mobile form factor
+@media screen and (max-width:$screen-md) {
+  .mobile-center {
+    text-align: center;
+    p {
+     text-align: center;
+    }
+  }
+}
+
+// Center text in rows if we are on a mobile form factor
+@media screen and (max-width:$screen-sm) {
+  .mobile-center-sm {
+    text-align: center;
+    p {
+     text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width:$screen-md) {
+  .row
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      text-align: center;
+    }
+}
+
+
+// CAROUSEL
+.carousel,
+.carousel-inner,
+.carousel-inner .item {
+  max-height: 600px;
+
+  .item img {
+    width: 100%;
+  }
+}
+
+footer {
+  padding: 10px 0px;
+}
+
+#carousel {
+  padding-top: $navbar-padding-horizontal;
+}
+
+#machine-carousel,
+#machine-carousel > .carousel-inner,
+#machine-carousel > .carousel-inner > .item {
+  height: 50vh;
+  max-height: 50vh;
+}
+
+// This image is super low-res, so don't scale and 
+// transform it at all. Just center it.
+#forging-pressing-img {
+  width: auto;
+  margin: auto;
+}
+
+#chainmaking-img {
+  transform: translateY(-10%);
+}
+
+#casting-img {
+  transform: translateY(-15%);
+}
+
+#wirerolling-img {
+  transform: translateY(-10%);
+}
+
+.btn-grey {
+  background-color: $grey-base;
+}
