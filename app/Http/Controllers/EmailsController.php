@@ -9,19 +9,19 @@ use Illuminate\Support\Facades\Mail;
 class EmailsController extends Controller
 {
     //
-    public function send_email() 
+    public function sendEmail(Request $request) 
     {
-    	$this->validate(request(), [
+    	$this->validate($request, [
 	    	'name' => 'required',
 	    	'email' => 'required|email',
 	    	'subject' => 'required',
 	    	'body' => 'required'
 	    ]);
 
-	    $name = request('name');
-	    $email = request('email');
-	    $subject = request('subject');
-	    $body = request('body');
+	    $name = $request->get('name');
+	    $email = $request->get('email');
+	    $subject = $request->get('subject');
+	    $body = $request->get('body');
 
 	    Mail::to(env('MCT_EMAIL'))->send(new ContactUs($name, $email, $subject, $body));
 

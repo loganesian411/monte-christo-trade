@@ -14,7 +14,7 @@ Route::get('/', function () {
     return view('homepage.index');
 });
 
-Route::post('/contact_us', 'EmailsController@send_email');
+Route::post('/contact_us', 'EmailsController@sendEmail');
 
 Route::get('/machines/{machine_name}', function ($machine_name) {
     return view('homepage.'.$machine_name);
